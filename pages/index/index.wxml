@@ -1,0 +1,13 @@
+
+<view class="container">
+  <treeGrid 
+    headers="{{tableHeader}}" 
+    data="{{ row }}" 
+    border="{{ border }}"
+    maxHeight="{{maxHeight}}"
+    bind:rowclick="onRowClick"
+    row_class_name="{{ row_class_name }}"
+    cell_class_name="{{ cell_class_name }}"
+  />
+</view>
+

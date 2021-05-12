@@ -1,0 +1,34 @@
+
+<view class="container">
+  <view class="tbody-tr {{ stripe ? 'tbody-tr-stripe' : '' }} {{ border ? 'tbody-tr-border' : ''}} {{row_class_name}}"
+  data-it="{{data}}" 
+   bindtap="onRowClick">
+    <view wx:for-item="head" 
+      wx:for="{{ headers }}" 
+      wx:key="*this" 
+      class="td {{cell_class_name}}" 
+      data-it="{{data}}" 
+      data-row="{{index}}" 
+      style="width:{{ headers[index].width }}rpx;color:{{ headers[index].color }};" 
+    >
+    <image wx:if="{{data.nodes.length > 0 && index == 0}}" src="{{open ? '/image/page_turning_right.png' : '/image/show_more.png'}}" catchtap="toggle" class="indent{{data.level}}"></image>
+    <image wx:if="{{data.nodes.length == 0 && index == 0}}" src="/image/page_turning_right.png" class="indent{{data.level}}" catchtap="bubbling"></image>    
+    {{data[head["prop"]]}}
+    </view>    
+  </view>
+
+  <view hidden='{{ !open }}'>
+    <TreeGridLine 
+      wx:for='{{ data.nodes }}'
+      wx:for-item="it" 
+      wx:key="*this" 
+      wx:for-index="idx"
+      headers="{{ headers }}" 
+      data="{{ it }}" 
+      stripe="{{ stripe }}"
+      border="{{ border }}"
+      row_class_name="{{ row_class_name }}"
+      cell_class_name="{{ cell_class_name }}"
+    ></TreeGridLine>
+  </view>   
+</view>

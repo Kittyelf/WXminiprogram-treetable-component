@@ -1,0 +1,7 @@
+
+{
+  "component": true,
+  "usingComponents": {
+    "TreeGridLine": "../treegrid-treeline/treegrid-treeline"
+  }
+}
